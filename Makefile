@@ -1,10 +1,10 @@
 EXEC_PHP    = php
-EXEC_VENDOR = vendor/bin
+EXEC_VENDOR = @bin/vendor
 
 SYMFONY     = symfony
-COMPOSER    = composer
+COMPOSER    = @bin/composer
 
-CONSOLE     = $(EXEC_PHP) bin/console
+CONSOLE     = @bin/console
 
 install: ## Install this project
 install: .env.local vendor
@@ -24,14 +24,14 @@ check: vendor
 
 cs-fix: ## apply php-cs-fixer fixes
 cs-fix: vendor
-	php-cs-fixer fix --using-cache=no --verbose --allow-risky=yes
+	@bin/php-cs-fixer fix --using-cache=no --diff --config .php-cs-fixer.dist.php --allow-risky=yes --using-cache=no
 
 .PHONY: check cs-fix
 
 qa: ## Run all analyses & tests
 qa: vendor
-	$(EXEC_VENDOR)/deptrac
-	$(EXEC_VENDOR)/phpstan analyse src --memory-limit 0
+	$(EXEC_VENDOR) deptrac
+	$(EXEC_VENDOR) phpstan analyse src
 	bin/phpunit --testsuite full
 
 test: ## Run unit tests only

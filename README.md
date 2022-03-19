@@ -49,7 +49,7 @@ As mentioned, a part may be a frame, an engine, a gearbox or a cab.
 
 - A gearbox provide the maximum torque supported
 - The gearbox can be `automatic` or `manual`
-- A manual gearbox has speed between `6` speed and `12` speed
+- A manual gearbox has gear between `6` speed and `12` speed
 - A manual gearbox __can't__ be built with crawler
 - An automatic gearbox has `12` speed
 - An automatic gearbox __can__ be built with crawler

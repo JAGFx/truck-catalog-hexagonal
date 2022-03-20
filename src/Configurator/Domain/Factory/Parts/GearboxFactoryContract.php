@@ -25,16 +25,16 @@ namespace Configurator\Domain\Factory\Parts;
             $crawler = null;
 
             if (is_null($type)) {
-                throw new UnableToBuildPartException( Gearbox::class, 'Invalid type', $data);
+                throw new UnableToBuildPartException(Gearbox::class, 'Invalid type', $data);
             }
-            
-            if( $type === GearboxType::Automatic ){
+
+            if ($type === GearboxType::Automatic) {
                 $hasCrawler = $data['hasCrawler'] ?? false;
                 $crawler = ($hasCrawler)
                     ? 2
                     : null;
             }
-            
+
             return new Gearbox($id, $type, $torque, $gears, $crawler);
         }
     }

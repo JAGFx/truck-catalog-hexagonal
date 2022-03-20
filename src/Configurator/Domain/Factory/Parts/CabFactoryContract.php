@@ -20,7 +20,7 @@ namespace Configurator\Domain\Factory\Parts;
             }
 
             if (is_null($height)) {
-                throw new UnableToBuildPartException(Cab::class,'Invalid height', $data);
+                throw new UnableToBuildPartException(Cab::class, 'Invalid height', $data);
             }
 
             return new Cab($id, $length, $height);

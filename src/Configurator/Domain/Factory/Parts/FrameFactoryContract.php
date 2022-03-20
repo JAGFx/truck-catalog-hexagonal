@@ -14,12 +14,11 @@ namespace Configurator\Domain\Factory\Parts;
             $axlesData = $data['axles'] ?? [];
             $axles = [];
             $type = FrameType::tryFrom($data['type']);
-            
 
             if (is_null($type)) {
-                throw new UnableToBuildPartException( Frame::class, 'Invalid type', $data);
+                throw new UnableToBuildPartException(Frame::class, 'Invalid type', $data);
             }
-    
+
             foreach ($axlesData as $axle) {
                 $axles[] = FrameAxleFactory::create($axle);
             }

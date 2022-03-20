@@ -7,8 +7,8 @@
  * Date:    19/03/2022
  * Time:    20:23
  */
-    
-    namespace Configurator\Domain\Model\Parts\Gearbox;
+
+namespace Configurator\Domain\Model\Parts\Gearbox;
 
     use Configurator\Domain\Exception\InvalidPartConsistencyException;
     use Configurator\Domain\Model\Parts\Part;
@@ -28,7 +28,7 @@
             private ?int $crawler
         ) {
         }
-    
+
         public function getId(): string
         {
             return $this->id;
@@ -68,19 +68,23 @@
         {
             return !is_null($this->getCrawler());
         }
-    
+
         public function validateConsistency(): void
         {
-            if( $this->getGears() < self::GEARS_MINIMAL )
+            if ($this->getGears() < self::GEARS_MINIMAL) {
                 throw new InvalidPartConsistencyException('Gear must be greater or equal than minimal', $this);
-    
-            if( $this->getGears() > self::GEARS_MAXIMAL )
+            }
+
+            if ($this->getGears() > self::GEARS_MAXIMAL) {
                 throw new InvalidPartConsistencyException('Gear must be less or equal than maximal', $this);
-            
-            if( $this->isManual() && $this->hasCrawlerAvailable() )
+            }
+
+            if ($this->isManual() && $this->hasCrawlerAvailable()) {
                 throw new InvalidPartConsistencyException('A manual gearbox cant have crawler', $this);
-            
-            if( $this->isAutomatic() && $this->getCrawler() !== 2 )
+            }
+
+            if ($this->isAutomatic() && $this->getCrawler() !== 2) {
                 throw new InvalidPartConsistencyException('Invalid crawler count', $this);
+            }
         }
     }

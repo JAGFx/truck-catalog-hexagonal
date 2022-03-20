@@ -18,11 +18,13 @@ final class Engine extends Part
         public int $torque
     ) {
     }
-    
+
     public function getId(): string
     {
         return $this->id;
     }
-    
-    public function validateConsistency(): void {}
+
+    public function validateConsistency(): void
+    {
+    }
 }

@@ -14,12 +14,12 @@ namespace Configurator\Domain\Factory\Parts;
         public const PART_FRAME = 'Frame';
         public const PART_GEARBOX = 'Gearbox';
         public const PART_ENGINE = 'Engine';
-    
+
         public function __construct(
             private UniqueIdentifierGeneratorContract $uniqueIdentifierGenerator
-        ) {}
-    
-    
+        ) {
+        }
+
         /**
          * @throws InvalidPartConsistencyException
          * @throws FactoryExceptionContract
@@ -27,7 +27,7 @@ namespace Configurator\Domain\Factory\Parts;
         public function build(string $type, array $data): PartContract
         {
             $uid = $this->uniqueIdentifierGenerator->generate();
-            
+
             $part = match ($type) {
                 self::PART_CAB => CabFactoryContract::build($uid, $data),
                 self::PART_FRAME => FrameFactoryContract::build($uid, $data),
@@ -35,9 +35,9 @@ namespace Configurator\Domain\Factory\Parts;
                 self::PART_ENGINE => EngineFactoryContract::build($uid, $data),
                 default => throw new UnableToBuildModelFactoryException($type, $data)
             };
-            
+
             $part->validateConsistency();
-            
+
             return $part;
         }
     }

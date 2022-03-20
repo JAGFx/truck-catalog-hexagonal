@@ -1,8 +1,7 @@
 <?php
-    
-    namespace Configurator\Domain\Contract\Logic;
-    
+
+namespace Configurator\Domain\Contract\Logic;
+
     interface FactoryExceptionContract
     {
-        
     }

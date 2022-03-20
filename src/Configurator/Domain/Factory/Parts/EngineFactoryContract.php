@@ -10,13 +10,13 @@
 
 namespace Configurator\Domain\Factory\Parts;
 
-    use Configurator\Domain\Contract\Factory\PartFactory;
+    use Configurator\Domain\Contract\Logic\PartFactoryContract;
     use Configurator\Domain\Model\Parts\Engine;
 
-    final class EngineFactory implements PartFactory
+    final class EngineFactoryContract implements PartFactoryContract
     {
-        public static function create(array $data): Engine
+        public static function build(string $id, array $data): Engine
         {
-            return new Engine($data['horsePower'], $data['torque']);
+            return new Engine($id, $data['horsePower'], $data['torque']);
         }
     }

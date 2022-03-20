@@ -10,13 +10,19 @@
 
 namespace Configurator\Domain\Model\Parts;
 
-use Configurator\Domain\Contract\Model\PartInterface;
-
-final class Engine implements PartInterface
+final class Engine extends Part
 {
     public function __construct(
+        private string $id,
         public int $horsePower,
         public int $torque
     ) {
     }
+    
+    public function getId(): string
+    {
+        return $this->id;
+    }
+    
+    public function validateConsistency(): void {}
 }

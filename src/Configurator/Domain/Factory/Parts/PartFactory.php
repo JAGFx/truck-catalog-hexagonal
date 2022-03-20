@@ -2,7 +2,11 @@
 
 namespace Configurator\Domain\Factory\Parts;
 
-    use Configurator\Domain\Contract\Model\PartInterface;
+    use Configurator\Domain\Contract\Infrastructure\UniqueIdentifierGeneratorContract;
+    use Configurator\Domain\Contract\Logic\FactoryExceptionContract;
+    use Configurator\Domain\Contract\Logic\PartContract;
+    use Configurator\Domain\Exception\InvalidPartConsistencyException;
+    use Configurator\Domain\Exception\UnableToBuildModelFactoryException;
 
     final class PartFactory
     {
@@ -10,15 +14,30 @@ namespace Configurator\Domain\Factory\Parts;
         public const PART_FRAME = 'Frame';
         public const PART_GEARBOX = 'Gearbox';
         public const PART_ENGINE = 'Engine';
-
-        public static function create(string $type, array $data): PartInterface
+    
+        public function __construct(
+            private UniqueIdentifierGeneratorContract $uniqueIdentifierGenerator
+        ) {}
+    
+    
+        /**
+         * @throws InvalidPartConsistencyException
+         * @throws FactoryExceptionContract
+         */
+        public function build(string $type, array $data): PartContract
         {
-            return match ($type) {
-                self::PART_CAB => CabFactory::create($data),
-                self::PART_FRAME => FrameFactory::create($data),
-                self::PART_GEARBOX => GearboxFactory::create($data),
-                self::PART_ENGINE => EngineFactory::create($data),
-                default => throw new \Exception('Unknown part')
+            $uid = $this->uniqueIdentifierGenerator->generate();
+            
+            $part = match ($type) {
+                self::PART_CAB => CabFactoryContract::build($uid, $data),
+                self::PART_FRAME => FrameFactoryContract::build($uid, $data),
+                self::PART_GEARBOX => GearboxFactoryContract::build($uid, $data),
+                self::PART_ENGINE => EngineFactoryContract::build($uid, $data),
+                default => throw new UnableToBuildModelFactoryException($type, $data)
             };
+            
+            $part->validateConsistency();
+            
+            return $part;
         }
     }

@@ -60,3 +60,23 @@ As mentioned, a part may be a frame, an engine, a gearbox or a cab.
 - A cab has `3` height size from `H1` to `H3`
 
 ### Configuration
+
+The result of configuration is a truck.
+This is an aggregate of parts
+
+- A truck must have parts from once brand.
+- A truck must have one frame, one engine, one gearbox and one cab.
+
+#### Part compatibilities
+
+- The engine torque must be less or equal than the gearbox torque eligibility. 
+
+#### Trim level
+
+There are 3 trim levels: 
+
+- Low cost
+- Standard
+- Premium
+
+Each trim level has a list of requirements with availability of parts, and therefore the truck result.

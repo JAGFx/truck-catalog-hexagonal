@@ -23,8 +23,4 @@ final class Engine extends Part
     {
         return $this->id;
     }
-
-    public function validateConsistency(): void
-    {
-    }
 }

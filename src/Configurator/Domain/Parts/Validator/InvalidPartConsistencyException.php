@@ -1,16 +1,17 @@
 <?php
 
-namespace Configurator\Domain\Exception;
+namespace Configurator\Domain\Parts\Validator;
 
-    use Configurator\Domain\Contract\Logic\PartContract;
+    use Configurator\Domain\Exception\ValidatorException;
+    use Configurator\Domain\Model\Parts\PartInterface;
 
-    class InvalidPartConsistencyException extends \Exception
+    class InvalidPartConsistencyException extends ValidatorException
     {
         public const MESSAGE = 'This part do not have a valid consistency';
 
         public function __construct(
             private string $description,
-            private PartContract $part
+            private PartInterface $part
         ) {
             parent::__construct(self::MESSAGE.': '.$description);
         }
@@ -20,7 +21,7 @@ namespace Configurator\Domain\Exception;
             return $this->description;
         }
 
-        public function getPart(): PartContract
+        public function getPart(): PartInterface
         {
             return $this->part;
         }

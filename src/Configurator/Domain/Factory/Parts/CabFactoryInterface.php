@@ -2,13 +2,12 @@
 
 namespace Configurator\Domain\Factory\Parts;
 
-    use Configurator\Domain\Contract\Logic\PartFactoryContract;
     use Configurator\Domain\Exception\UnableToBuildPartException;
     use Configurator\Domain\Model\Parts\Cab\Cab;
     use Configurator\Domain\Model\Parts\Cab\CabHeight;
     use Configurator\Domain\Model\Parts\Cab\CabLength;
 
-    final class CabFactoryContract implements PartFactoryContract
+    final class CabFactoryInterface implements PartFactoryInterface
     {
         public static function build(string $id, array $data): Cab
         {

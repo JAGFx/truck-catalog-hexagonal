@@ -10,12 +10,11 @@
 
 namespace Configurator\Domain\Factory\Parts;
 
-    use Configurator\Domain\Contract\Logic\PartFactoryContract;
     use Configurator\Domain\Exception\UnableToBuildPartException;
     use Configurator\Domain\Model\Parts\Gearbox\Gearbox;
     use Configurator\Domain\Model\Parts\Gearbox\GearboxType;
 
-    final class GearboxFactoryContract implements PartFactoryContract
+    final class GearboxFactoryInterface implements PartFactoryInterface
     {
         public static function build(string $id, array $data): Gearbox
         {

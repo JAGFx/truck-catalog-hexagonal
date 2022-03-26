@@ -10,7 +10,6 @@
 
 namespace Configurator\Domain\Model\Parts\Frame;
 
-    use Configurator\Domain\Exception\InvalidPartConsistencyException;
     use Configurator\Domain\Model\Parts\Part;
 
     final class Frame extends Part
@@ -48,39 +47,5 @@ namespace Configurator\Domain\Model\Parts\Frame;
         public function getAxles(): array
         {
             return $this->axles;
-        }
-
-        public function validateConsistency(): void
-        {
-            $hasMotorizedAxle = false;
-            $hasDirectionAxle = false;
-
-            foreach ($this->getAxles() as $axle) {
-                if (!$hasMotorizedAxle && $axle->isMotorized()) {
-                    $hasMotorizedAxle = true;
-                }
-
-                if (!$hasDirectionAxle && $axle->isDirectional()) {
-                    $hasDirectionAxle = true;
-                }
-            }
-
-            $numberOfAxles = count($this->getAxles());
-
-            if ($numberOfAxles < Frame::AXLES_COUNT_MINIMAL) {
-                throw new InvalidPartConsistencyException('Unsuffisant axles', $this);
-            }
-
-            if ($numberOfAxles > Frame::AXLES_COUNT_MAXIMAL) {
-                throw new InvalidPartConsistencyException('Too much axles', $this);
-            }
-
-            if (!$hasDirectionAxle) {
-                throw new InvalidPartConsistencyException('No directional axle', $this);
-            }
-
-            if (!$hasMotorizedAxle) {
-                throw new InvalidPartConsistencyException('No motorized axle', $this);
-            }
         }
     }

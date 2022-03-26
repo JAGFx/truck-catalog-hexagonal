@@ -2,12 +2,11 @@
 
 namespace Configurator\Domain\Factory\Parts;
 
-    use Configurator\Domain\Contract\Logic\PartFactoryContract;
     use Configurator\Domain\Exception\UnableToBuildPartException;
     use Configurator\Domain\Model\Parts\Frame\Frame;
     use Configurator\Domain\Model\Parts\Frame\FrameType;
 
-    final class FrameFactoryContract implements PartFactoryContract
+    final class FrameFactoryInterface implements PartFactoryInterface
     {
         public static function build(string $id, array $data): Frame
         {

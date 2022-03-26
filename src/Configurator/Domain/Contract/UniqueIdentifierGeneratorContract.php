@@ -1,6 +1,6 @@
 <?php
 
-namespace Configurator\Domain\Contract\Infrastructure;
+namespace Configurator\Domain\Contract;
 
     interface UniqueIdentifierGeneratorContract
     {

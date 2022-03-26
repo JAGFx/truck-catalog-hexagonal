@@ -2,11 +2,11 @@
 
 namespace Configurator\Domain\Factory\Parts;
 
-    use Configurator\Domain\Contract\Infrastructure\UniqueIdentifierGeneratorContract;
-    use Configurator\Domain\Contract\Logic\FactoryExceptionContract;
-    use Configurator\Domain\Contract\Logic\PartContract;
-    use Configurator\Domain\Exception\InvalidPartConsistencyException;
+    use Configurator\Domain\Contract\UniqueIdentifierGeneratorContract;
     use Configurator\Domain\Exception\UnableToBuildModelFactoryException;
+    use Configurator\Domain\FactoryExceptionInterface;
+    use Configurator\Domain\Model\Parts\PartInterface;
+    use Configurator\Domain\Parts\Validator\InvalidPartConsistencyException;
 
     final class PartFactory
     {
@@ -22,21 +22,21 @@ namespace Configurator\Domain\Factory\Parts;
 
         /**
          * @throws InvalidPartConsistencyException
-         * @throws FactoryExceptionContract
+         * @throws FactoryExceptionInterface
          */
-        public function build(string $type, array $data): PartContract
+        public function build(string $type, array $data): PartInterface
         {
             $uid = $this->uniqueIdentifierGenerator->generate();
 
             $part = match ($type) {
-                self::PART_CAB => CabFactoryContract::build($uid, $data),
-                self::PART_FRAME => FrameFactoryContract::build($uid, $data),
-                self::PART_GEARBOX => GearboxFactoryContract::build($uid, $data),
-                self::PART_ENGINE => EngineFactoryContract::build($uid, $data),
+                self::PART_CAB => CabFactoryInterface::build($uid, $data),
+                self::PART_FRAME => FrameFactoryInterface::build($uid, $data),
+                self::PART_GEARBOX => GearboxFactoryInterface::build($uid, $data),
+                self::PART_ENGINE => EngineFactoryInterface::build($uid, $data),
                 default => throw new UnableToBuildModelFactoryException($type, $data)
             };
 
-            $part->validateConsistency();
+//            $part->validateConsistency();
 
             return $part;
         }

@@ -25,8 +25,4 @@ namespace Configurator\Domain\Model\Parts\Cab;
         {
             return $this->id;
         }
-
-        public function validateConsistency(): void
-        {
-        }
     }

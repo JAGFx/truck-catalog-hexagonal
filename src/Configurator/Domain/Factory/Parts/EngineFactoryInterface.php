@@ -10,10 +10,9 @@
 
 namespace Configurator\Domain\Factory\Parts;
 
-    use Configurator\Domain\Contract\Logic\PartFactoryContract;
     use Configurator\Domain\Model\Parts\Engine;
 
-    final class EngineFactoryContract implements PartFactoryContract
+    final class EngineFactoryInterface implements PartFactoryInterface
     {
         public static function build(string $id, array $data): Engine
         {

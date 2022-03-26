@@ -2,7 +2,7 @@
     
     namespace Configurator\Domain\Factory;
     
-    use Configurator\Domain\Contract\Infrastructure\UniqueIdentifierGeneratorContract;
+    use Configurator\Domain\Contract\UniqueIdentifierGeneratorContract;
     use Configurator\Domain\Exception\UnableToBuildModelFactoryException;
     use Configurator\Domain\Factory\Parts\PartFactory;
     use Configurator\Domain\Model\Brand;

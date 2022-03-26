@@ -2,9 +2,9 @@
 
 namespace Configurator\Domain\Exception;
 
-    use Configurator\Domain\Contract\Logic\FactoryExceptionContract;
+    use Configurator\Domain\FactoryExceptionInterface;
 
-    class UnableToBuildModelFactoryException extends \Exception implements FactoryExceptionContract
+    class UnableToBuildModelFactoryException extends \Exception implements FactoryExceptionInterface
     {
         public const MESSAGE = 'Unable to find the correct model to build with passed data';
 

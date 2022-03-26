@@ -2,9 +2,9 @@
 
 namespace Configurator\Domain\Exception;
 
-    use Configurator\Domain\Contract\Logic\FactoryExceptionContract;
+    use Configurator\Domain\FactoryExceptionInterface;
 
-    class UnableToBuildPartException extends \Exception implements FactoryExceptionContract
+    class UnableToBuildPartException extends \Exception implements FactoryExceptionInterface
     {
         public const MESSAGE = 'The data provided do not permit to build this part';
 

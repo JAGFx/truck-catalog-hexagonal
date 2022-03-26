@@ -10,7 +10,7 @@
     use Configurator\Domain\Model\Parts\Engine;
     use Configurator\Domain\Model\Parts\Frame\Frame;
     use Configurator\Domain\Model\Parts\Gearbox\Gearbox;
-    use Configurator\Domain\Model\Truck;
+    use Configurator\Domain\Model\Truck\Truck;
 
     final class TruckFactory
     {

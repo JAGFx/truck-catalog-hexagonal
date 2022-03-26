@@ -1,6 +1,6 @@
 <?php
     
-    namespace Configurator\Domain;
+    namespace Configurator\Domain\Assignment;
     
     interface AssignmentResponseInterface
     {

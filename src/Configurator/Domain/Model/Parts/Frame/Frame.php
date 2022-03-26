@@ -20,6 +20,7 @@ namespace Configurator\Domain\Model\Parts\Frame;
         public function __construct(
             private string $id,
             private FrameType $type,
+            /** @var FrameAxle[] */
             private array $axles
         ) {
         }
@@ -47,5 +48,25 @@ namespace Configurator\Domain\Model\Parts\Frame;
         public function getAxles(): array
         {
             return $this->axles;
+        }
+        
+        public function hasMotorizedAxle(): bool {
+            /** @var FrameAxle $axle */
+            foreach ($this->axles as $axle) {
+                if( $axle->isMotorized() )
+                    return true;
+            }
+            
+            return false;
+        }
+        
+        public function hasDirectionalAxle(): bool {
+            /** @var FrameAxle $axle */
+            foreach ($this->axles as $axle) {
+                if( $axle->isDirectional() )
+                    return true;
+            }
+    
+            return false;
         }
     }

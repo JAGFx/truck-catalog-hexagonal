@@ -1,7 +1,7 @@
 <?php
-    
-    namespace Configurator\Domain\Factory;
-    
+
+namespace Configurator\Domain\Factory;
+
     use Configurator\Domain\Contract\UniqueIdentifierGeneratorContract;
     use Configurator\Domain\Exception\UnableToBuildModelFactoryException;
     use Configurator\Domain\Factory\Parts\PartFactory;
@@ -17,30 +17,32 @@
         public function __construct(
             private UniqueIdentifierGeneratorContract $uniqueIdentifierGenerator,
             private PartFactory $partFactory
-        ) {}
-    
+        ) {
+        }
+
         public function build(array $data): Truck
         {
             $parts = $data['parts'] ?? [];
-            $brand = Brand::tryFrom( $data['brand'] );
-            
-            if( is_null( $brand ) )
-                throw new UnableToBuildModelFactoryException( Truck::class, $data );
-            
+            $brand = Brand::tryFrom($data['brand']);
+
+            if (is_null($brand)) {
+                throw new UnableToBuildModelFactoryException(Truck::class, $data);
+            }
+
             $uid = $this->uniqueIdentifierGenerator->generate();
-            
+
             /** @var Cab $cab */
-            $cab = $this->partFactory->build( PartFactory::PART_CAB, $parts );
-            
+            $cab = $this->partFactory->build(PartFactory::PART_CAB, $parts);
+
             /** @var Frame $frame */
-            $frame = $this->partFactory->build( PartFactory::PART_FRAME, $parts );
-            
+            $frame = $this->partFactory->build(PartFactory::PART_FRAME, $parts);
+
             /** @var Gearbox $gearbox */
-            $gearbox = $this->partFactory->build( PartFactory::PART_GEARBOX, $parts );
-            
+            $gearbox = $this->partFactory->build(PartFactory::PART_GEARBOX, $parts);
+
             /** @var Engine $engine */
-            $engine = $this->partFactory->build( PartFactory::PART_ENGINE, $parts );
-            
-            return new Truck( $uid, $brand, $cab, $frame, $gearbox, $engine );
+            $engine = $this->partFactory->build(PartFactory::PART_ENGINE, $parts);
+
+            return new Truck($uid, $brand, $cab, $frame, $gearbox, $engine);
         }
     }

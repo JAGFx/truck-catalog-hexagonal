@@ -1,7 +1,7 @@
 <?php
-    
-    namespace Configurator\Domain\Parts\View;
-    
+
+namespace Configurator\Domain\Parts\View;
+
     class CabView extends AbstractPartView
     {
         public function __construct(
@@ -11,6 +11,6 @@
             public string $length,
             public string $height
         ) {
-            parent::__construct( $id, $type, $brand );
+            parent::__construct($id, $type, $brand);
         }
     }

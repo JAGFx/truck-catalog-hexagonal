@@ -1,8 +1,7 @@
 <?php
-    
-    namespace Configurator\Domain;
-    
+
+namespace Configurator\Domain;
+
     interface ViewInterface
     {
-        
     }

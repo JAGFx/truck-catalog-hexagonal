@@ -1,12 +1,12 @@
 <?php
 
-    /**
-     * @author:    Emmanuel SMITH <hey@emmanuel-smith.me>
-     * project:    truck-catalog-hexagonal
-     * file:    TruckValidator.php
-     * Date:    26/03/2022
-     * Time:    21:45
-     */
+/**
+ * @author:    Emmanuel SMITH <hey@emmanuel-smith.me>
+ * project:    truck-catalog-hexagonal
+ * file:    TruckValidator.php
+ * Date:    26/03/2022
+ * Time:    21:45
+ */
 
 namespace Configurator\Domain\Truck;
 

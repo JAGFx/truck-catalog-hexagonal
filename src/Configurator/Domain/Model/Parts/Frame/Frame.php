@@ -49,24 +49,28 @@ namespace Configurator\Domain\Model\Parts\Frame;
         {
             return $this->axles;
         }
-        
-        public function hasMotorizedAxle(): bool {
+
+        public function hasMotorizedAxle(): bool
+        {
             /** @var FrameAxle $axle */
             foreach ($this->axles as $axle) {
-                if( $axle->isMotorized() )
+                if ($axle->isMotorized()) {
                     return true;
+                }
             }
-            
+
             return false;
         }
-        
-        public function hasDirectionalAxle(): bool {
+
+        public function hasDirectionalAxle(): bool
+        {
             /** @var FrameAxle $axle */
             foreach ($this->axles as $axle) {
-                if( $axle->isDirectional() )
+                if ($axle->isDirectional()) {
                     return true;
+                }
             }
-    
+
             return false;
         }
     }

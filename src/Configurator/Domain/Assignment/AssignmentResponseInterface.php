@@ -1,7 +1,7 @@
 <?php
-    
-    namespace Configurator\Domain\Assignment;
-    
+
+namespace Configurator\Domain\Assignment;
+
     interface AssignmentResponseInterface
     {
     }

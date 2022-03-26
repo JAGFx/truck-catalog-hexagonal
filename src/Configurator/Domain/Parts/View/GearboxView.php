@@ -1,7 +1,7 @@
 <?php
-    
-    namespace Configurator\Domain\Parts\View;
-    
+
+namespace Configurator\Domain\Parts\View;
+
     use Configurator\Domain\Model\Parts\Gearbox\GearboxType;
 
     class GearboxView extends AbstractPartView
@@ -15,17 +15,19 @@
             public int $gears,
             public ?int $crawler,
         ) {
-            parent::__construct( $id, $type, $brand );
+            parent::__construct($id, $type, $brand);
         }
-        
-        public function isAutomatic(): bool {
+
+        public function isAutomatic(): bool
+        {
             return $this->type === GearboxType::Automatic->value;
         }
-    
-        public function isManual(): bool {
+
+        public function isManual(): bool
+        {
             return $this->type === GearboxType::Manual->value;
         }
-    
+
         public function hasCrawlerAvailable(): bool
         {
             return !is_null($this->crawler);

@@ -1,7 +1,7 @@
 <?php
-    
-    namespace Configurator\Domain\Parts\View;
-    
+
+namespace Configurator\Domain\Parts\View;
+
     use Configurator\Domain\Model\Parts\Frame\FrameType;
 
     class FrameView extends AbstractPartView
@@ -14,14 +14,14 @@
             /** @var FrameAxleView[] */
             public array $axles
         ) {
-            parent::__construct( $id, $type, $brand );
+            parent::__construct($id, $type, $brand);
         }
-    
+
         public function isATractor(): bool
         {
             return $this->frameType === FrameType::Tractor->value;
         }
-    
+
         public function isStraight(): bool
         {
             return $this->frameType === FrameType::Straight->value;

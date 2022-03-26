@@ -1,7 +1,7 @@
 <?php
-    
-    namespace Configurator\Domain\Model;
-    
+
+namespace Configurator\Domain\Model;
+
     enum Brand : string
     {
         case Scania = 'scania';

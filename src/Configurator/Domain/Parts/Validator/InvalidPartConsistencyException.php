@@ -2,8 +2,8 @@
 
 namespace Configurator\Domain\Parts\Validator;
 
-    use Configurator\Domain\Exception\ValidatorException;
     use Configurator\Domain\Model\Parts\PartInterface;
+    use Configurator\Domain\ValidatorException;
 
     class InvalidPartConsistencyException extends ValidatorException
     {

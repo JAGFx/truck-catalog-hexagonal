@@ -13,8 +13,9 @@
             protected PartsManagerContract $partsManager
         ) {}
         
-        protected function save( PartInterface $part ): PartInterface{
-            $this->partsManager->save( $part );
+        protected function save( PartInterface $part , bool $save = true): PartInterface{
+            if ($save)
+                $this->partsManager->save( $part );
             
             return $part;
         }

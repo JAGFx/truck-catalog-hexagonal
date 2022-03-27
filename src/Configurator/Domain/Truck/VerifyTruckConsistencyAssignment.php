@@ -21,14 +21,17 @@
         public const PARAMS_TRUCK = 'truck';
         
         public function __construct(
-            private TruckValidator $truckValidator
+            private TruckValidator $truckValidator,
+            private TruckFactory $truckFactory
         ) {}
         
-        public function execute(AssignmentParameters $parameters): AssignmentResponse
+        public function execute(?AssignmentParameters $parameters = null): AssignmentResponse
         {
             try {
-                /** @var Truck $truck */
-                $truck = $parameters->get(self::PARAMS_TRUCK);
+                /** @var TruckView $truckView */
+                $truckView = $parameters->get(self::PARAMS_TRUCK);
+                $truck = $this->truckFactory->make( $truckView );
+                
                 $this->truckValidator->validate($truck);
                 
                 return new AssignmentResponse($truck);

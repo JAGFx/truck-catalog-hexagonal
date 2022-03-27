@@ -14,9 +14,9 @@ namespace Configurator\Domain\Model\Truck;
             private string $id,
             private Brand $brand,
             private Cab $cab,
+            private Engine $engine,
             private Frame $frame,
             private Gearbox $gearbox,
-            private Engine $engine,
             private TruckTrimLevel $trimLevel
         ) {
         }

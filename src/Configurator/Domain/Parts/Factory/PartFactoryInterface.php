@@ -2,10 +2,11 @@
     
     namespace Configurator\Domain\Parts\Factory;
     
+    use Configurator\Domain\FactoryInterface;
     use Configurator\Domain\Model\Parts\PartInterface;
-    use Configurator\Domain\Parts\View\PartViewInterface;
+    use Configurator\Domain\ViewInterface;
 
-    interface PartFactoryInterface
+    interface PartFactoryInterface extends FactoryInterface
     {
-        public function make( PartViewInterface $partView, bool $save = true ):PartInterface;
+        public function make( ViewInterface $view, bool $save = true ):PartInterface;
     }

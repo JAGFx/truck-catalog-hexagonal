@@ -2,6 +2,6 @@
 
 namespace Configurator\Domain;
 
-    interface FactoryExceptionInterface
+    class ValidatorException extends \Exception
     {
     }

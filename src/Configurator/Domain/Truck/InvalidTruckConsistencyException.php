@@ -10,8 +10,8 @@
 
 namespace Configurator\Domain\Truck;
 
-    use Configurator\Domain\Exception\ValidatorException;
     use Configurator\Domain\Model\Truck\Truck;
+    use Configurator\Domain\ValidatorException;
 
     class InvalidTruckConsistencyException extends ValidatorException
     {

@@ -4,5 +4,5 @@ namespace Configurator\Domain\Assignment;
 
     interface AssignmentInterface
     {
-        public function execute(AssignmentParameters $parameters): AssignmentResponse;
+        public function execute(?AssignmentParameters $parameters = null): AssignmentResponse;
     }

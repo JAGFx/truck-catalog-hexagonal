@@ -9,4 +9,6 @@ namespace Configurator\Domain\Contract\Manager;
     {
         /** @return PartInterface[] */
         public function listAllByBrand(Brand $brand): array;
+        
+        public function save(PartInterface $part): void;
     }

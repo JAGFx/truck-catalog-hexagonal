@@ -2,14 +2,15 @@
 
 namespace Configurator\Domain\Parts\View;
 
+    use Configurator\Domain\Model\Brand;
     use Configurator\Domain\ViewInterface;
 
     abstract class AbstractPartView implements PartViewInterface, ViewInterface
     {
         public function __construct(
             public string $id,
-            public string $type,
-            public string $brand
+            public PartType $type,
+            public Brand $brand
         ) {
         }
 
@@ -18,12 +19,12 @@ namespace Configurator\Domain\Parts\View;
             return $this->id;
         }
 
-        public function getType(): string
+        public function getType(): PartType
         {
             return $this->type;
         }
 
-        public function getBrand(): string
+        public function getBrand(): Brand
         {
             return $this->brand;
         }

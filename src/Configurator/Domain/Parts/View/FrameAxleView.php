@@ -7,23 +7,11 @@ namespace Configurator\Domain\Parts\View;
     class FrameAxleView
     {
         public function __construct(
-            public string $mode,
-            public bool $isLiftable
+            public FrameAxleMode $mode,
+            public bool $isLiftable,
+            public bool $isMotorized,
+            public bool $isDirectional,
+            public bool $isSimple
         ) {
-        }
-
-        public function isMotorized(): bool
-        {
-            return $this->mode === FrameAxleMode::Motorized->value;
-        }
-
-        public function isDirectional(): bool
-        {
-            return $this->mode === FrameAxleMode::Directional->value;
-        }
-
-        public function isSimple(): bool
-        {
-            return $this->mode === FrameAxleMode::Simple->value;
         }
     }

@@ -1,7 +1,7 @@
 <?php
-    
-    namespace Configurator\Domain\Truck;
-    
+
+namespace Configurator\Domain\Truck;
+
     use Configurator\Domain\Contract\UniqueIdentifierGeneratorContract;
     use Configurator\Domain\FactoryInterface;
     use Configurator\Domain\Model\Parts\Cab\Cab;
@@ -23,28 +23,28 @@
             private EngineFactory $engineFactory,
             private FrameFactory $frameFactory,
             private GearboxFactory $gearboxFactory
-        ) {}
-    
-    
+        ) {
+        }
+
         /**
          * @param TruckView $view
          */
         public function make(ViewInterface $view, bool $save = true): Truck
         {
             $id = $this->uniqueIdentifierGenerator->generate();
-            
+
             /** @var Cab $cab */
-            $cab = $this->cabFactory->make( $view->cab, $save );
-            
+            $cab = $this->cabFactory->make($view->cab, $save);
+
             /** @var Engine $engine */
             $engine = $this->engineFactory->make($view->engine, $save);
-            
+
             /** @var Frame $frame */
             $frame = $this->frameFactory->make($view, $save);
-            
+
             /** @var Gearbox $gearbox */
             $gearbox = $this->gearboxFactory->make($view->gearbox, $save);
-            
-            return new Truck($id, $view->brand, $cab, $engine, $frame, $gearbox, $view->trimLevel );
+
+            return new Truck($id, $view->brand, $cab, $engine, $frame, $gearbox, $view->trimLevel);
         }
     }

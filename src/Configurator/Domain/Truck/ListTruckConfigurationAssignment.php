@@ -1,7 +1,7 @@
 <?php
-    
-    namespace Configurator\Domain\Truck;
-    
+
+namespace Configurator\Domain\Truck;
+
     use Configurator\Domain\Assignment\AssignmentInterface;
     use Configurator\Domain\Assignment\AssignmentParameters;
     use Configurator\Domain\Assignment\AssignmentResponse;
@@ -9,13 +9,13 @@
 
     class ListTruckConfigurationAssignment implements AssignmentInterface
     {
-    
         public function __construct(
             private TruckManagerContract $truckManager
-        ) {}
-    
+        ) {
+        }
+
         public function execute(?AssignmentParameters $parameters = null): AssignmentResponse
         {
-            return new AssignmentResponse( $this->truckManager->listAll() );
+            return new AssignmentResponse($this->truckManager->listAll());
         }
     }

@@ -1,7 +1,7 @@
 <?php
-    
-    namespace Configurator\Domain\Truck;
-    
+
+namespace Configurator\Domain\Truck;
+
     use Configurator\Domain\Model\Brand;
     use Configurator\Domain\Model\Truck\TruckTrimLevel;
     use Configurator\Domain\Parts\View\CabView;
@@ -20,5 +20,6 @@
             public FrameView $frame,
             public GearboxView $gearbox,
             public TruckTrimLevel $trimLevel
-        ) {}
+        ) {
+        }
     }

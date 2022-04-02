@@ -1,7 +1,7 @@
 <?php
-    
-    namespace Configurator\Domain\Parts\Factory;
-    
+
+namespace Configurator\Domain\Parts\Factory;
+
     use Configurator\Domain\Contract\Manager\PartsManagerContract;
     use Configurator\Domain\Contract\UniqueIdentifierGeneratorContract;
     use Configurator\Domain\Model\Parts\PartInterface;
@@ -11,12 +11,15 @@
         public function __construct(
             protected UniqueIdentifierGeneratorContract $uniqueIdentifierGenerator,
             protected PartsManagerContract $partsManager
-        ) {}
-        
-        protected function save( PartInterface $part , bool $save = true): PartInterface{
-            if ($save)
-                $this->partsManager->save( $part );
-            
+        ) {
+        }
+
+        protected function save(PartInterface $part, bool $save = true): PartInterface
+        {
+            if ($save) {
+                $this->partsManager->save($part);
+            }
+
             return $part;
         }
     }

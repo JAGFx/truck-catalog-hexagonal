@@ -18,7 +18,7 @@ namespace Configurator\Domain\Parts;
         ) {
         }
 
-        public function execute(AssignmentParameters $parameters): AssignmentResponse
+        public function execute(?AssignmentParameters $parameters = null): AssignmentResponse
         {
             try {
                 $brand = $parameters->get(self::PARAMS_BRAND);

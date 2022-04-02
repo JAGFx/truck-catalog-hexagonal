@@ -1,11 +1,10 @@
 <?php
-    
-    namespace Configurator\Domain\Parts\Factory;
-    
+
+namespace Configurator\Domain\Parts\Factory;
+
     use Configurator\Domain\Model\Parts\Engine;
     use Configurator\Domain\Model\Parts\PartInterface;
     use Configurator\Domain\Parts\View\EngineView;
-    use Configurator\Domain\Parts\View\PartViewInterface;
     use Configurator\Domain\ViewInterface;
 
     class EngineFactory extends PartFactory
@@ -17,7 +16,7 @@
         {
             $id = $this->uniqueIdentifierGenerator->generate();
             $engine = new Engine($id, $view->horsePower, $view->torque);
-            
-            return $this->save( $engine, $save );
+
+            return $this->save($engine, $save);
         }
     }

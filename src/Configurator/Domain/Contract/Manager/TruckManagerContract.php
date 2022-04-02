@@ -1,7 +1,7 @@
 <?php
-    
-    namespace Configurator\Domain\Contract\Manager;
-    
+
+namespace Configurator\Domain\Contract\Manager;
+
     use Configurator\Domain\Model\Truck\Truck;
 
     interface TruckManagerContract

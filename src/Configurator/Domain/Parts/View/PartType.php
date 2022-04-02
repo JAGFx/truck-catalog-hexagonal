@@ -1,7 +1,7 @@
 <?php
-    
-    namespace Configurator\Domain\Parts\View;
-    
+
+namespace Configurator\Domain\Parts\View;
+
     enum PartType: string
     {
         case Cab = 'cab';
